@@ -1,0 +1,57 @@
+<div id="page-wrapper">	
+	﻿<div class="row">
+		<div class="col-md-8 col-lg-offset-4">
+			<h2>Personal Information</h2>
+		</div>
+	</div>
+	<form name="form" role="form" novalidate>
+	    <div class="row">
+	        <div class="col-md-4 well col-lg-offset-4">
+
+	            <input-text-edit label="First Name" name="firstName" readonly></input-text-edit>
+	            <input-text-edit label="Last Name" name="lastName" readonly></input-text-edit>
+	            <input-text-edit label="Site Name" name="siteName" readonly></input-text-edit>
+	            <input-text-edit label="Email" name="email" readonly></input-text-edit>
+	            <input-text-edit label="Country" name="country" readonly></input-text-edit>
+	            <input-text-edit label="Phone Number" name="phoneNumber" readonly></input-text-edit>
+	            <input-text-edit label="FaceBook" name="faceBook" readonly></input-text-edit>
+	            <input-text-edit label="Twitter" name="twitter" readonly></input-text-edit>
+	            <input-text-edit label="GooglePlus" name="googlePlus" readonly></input-text-edit>
+
+	        </div>
+	    </div>
+        <div class="row">
+            <div class="col-md-12 well">
+                <uib-tabset justified="true">
+                    <div text-angular-toolbar class="toolbar" name="toolbar" ta-toolbar="[]"></div>
+                    <uib-tab heading="Description">
+                        <input-text-edit label="Description" name="description" editor readonly></input-text-edit>
+                    </uib-tab>
+                    <uib-tab heading="Photo">
+                        <ul class="gallery">
+                            <li ng-repeat="image in model.imagesProfile">
+                                <a ng-click="openLightboxModal(model.imagesProfile,$index)">
+                                    <img ng-src="{{image.thumbUrl}}" class="img-thumbnail">
+                                </a>
+                            </li>
+                        </ul>
+                    </uib-tab>
+                </uib-tabset>
+
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+				<div class="form-group">
+					<div class="col-md-3" style="padding: 1px">
+						<a ui-sref="personalInformationList" class="btn btn-primary btn-block">Back</a>
+					</div>
+					<div class="col-md-9" style=" padding: 1px">
+					<a ui-sref="personalInformationEdit({id:model.id})" class="btn btn-default btn-block">Edit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /#page-wrapper -->

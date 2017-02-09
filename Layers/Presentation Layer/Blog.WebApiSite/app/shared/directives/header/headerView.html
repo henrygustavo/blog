@@ -1,0 +1,88 @@
+<div>
+    <header>
+
+        <!-- *** TOP ***
+_________________________________________________________ -->
+        <div id="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-5 contact">
+
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="social">
+                            <a href="{{model.faceBook}}"  ng-if="model.faceBook" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                            <a href="{{model.googlePlus}}" ng-if="model.googlePlus" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                            <a href="{{model.twitter}}" ng-if="model.twitter"  class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *** TOP END *** -->
+
+        <!-- *** NAVBAR ***
+_________________________________________________________ -->
+
+        <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+            <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="navbar-buttons">
+                            <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-align-justify"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--/.navbar-header -->
+
+                    <div class="navbar-collapse collapse" id="navigation">
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li ng-repeat="publicUrl in publicUrls" ng-class="{'active': isActive('{{publicUrl.value}}')}">
+                                <a ui-sref="{{publicUrl.url}}">{{publicUrl.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+
+                    <div class="collapse clearfix" id="search">
+
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-btn">
+
+                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                                </span>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+            <!-- /#navbar -->
+        </div>
+        <!-- *** NAVBAR END *** -->
+    </header>
+
+    <div id="heading-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>{{model.siteName}}</h1>
+                </div>
+                <div class="col-md-6">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

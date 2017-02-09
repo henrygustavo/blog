@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataBase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{9A9E8F0F-9A6C-4E1E-A2C1-99AB64C337EE}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>
+    </AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Stored Procedures\DeleteUserClaims.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUserClaimsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUserLogins.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUserLoginsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUserRolesByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\GetPasswordHash.sql" />
+    <Build Include="dbo\Stored Procedures\GetSecurityStamp.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserById.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserClaimsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserIdByUserLogins.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserLoginsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserRolesByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUserClaims.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUserLogins.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUserRoles.sql" />
+    <Build Include="dbo\Stored Procedures\TruncateGoogleApiDataStore.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePasswordHash.sql" />
+    <Build Include="dbo\Tables\CategorySetting.sql" />
+    <Build Include="dbo\Tables\GoogleApiDataStore.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\Setting.sql" />
+    <Build Include="dbo\Tables\UserClaims.sql" />
+    <Build Include="dbo\Tables\UserLogins.sql" />
+    <Build Include="dbo\Tables\UserRoles.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Views\UsersView.sql" />
+    <Build Include="dbo\Tables\Tag.sql" />
+    <Build Include="dbo\Tables\PersonalInformation.sql" />
+    <Build Include="dbo\Tables\BlogEntryTag.sql" />
+    <Build Include="dbo\Tables\BlogEntryComment.sql" />
+    <Build Include="dbo\Tables\BlogEntry.sql" />
+    <Build Include="dbo\Stored Procedures\GetBlogEntryTagByIdBlogEntry.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteBlogEntryTagByIdBlogEntry.sql" />
+    <Build Include="dbo\Views\BlogEntryView.sql" />
+    <Build Include="dbo\Views\BlogEntryCommentView.sql" />
+    <Build Include="dbo\Views\BlogEntryTagView.sql" />
+  </ItemGroup>
+</Project>

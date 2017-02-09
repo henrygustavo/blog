@@ -1,0 +1,56 @@
+<div id="page-wrapper">﻿
+<div class="row">
+	<div class="col-md-8 col-lg-offset-4">
+		<h2>Personal Information</h2>
+	</div>
+</div>
+	<form name="form" role="form" novalidate>
+	    <div class="row">
+            <div class="col-md-4 well col-lg-offset-4">
+
+                <input-text-edit label="First Name" name="firstName" required maxlength="50"></input-text-edit>
+                <input-text-edit label="Last Name" name="lastName" required maxlength="50"></input-text-edit>
+                <input-text-edit label="Site Name" name="siteName" required maxlength="50"></input-text-edit>
+                <input-text-edit label="Email" name="email" required maxlength="50" email></input-text-edit>
+                <input-text-edit label="Country" name="country" required maxlength="50"></input-text-edit>
+                <input-text-edit label="Phone Number" name="phoneNumber" required maxlength="20" mask="(51) 9?9999-9999"></input-text-edit>
+                <input-text-edit label="FaceBook" name="faceBook" maxlength="100"></input-text-edit>
+                <input-text-edit label="Twitter" name="twitter" maxlength="100"></input-text-edit>
+                <input-text-edit label="GooglePlus" name="googlePlus" maxlength="100"></input-text-edit>
+
+            </div>
+	    </div>
+        <div class="row">
+            <div class="col-md-12 well">
+                <uib-tabset justified="true">
+                    <uib-tab heading="Description">
+                        <input-text-edit name="description" editor></input-text-edit>
+                    </uib-tab>
+                    <uib-tab heading="Photo">
+                        <ul class="gallery">
+                            <li ng-repeat="image in model.imagesProfile">
+                                <a ng-click="openLightboxModal(model.imagesProfile,$index)">
+                                    <img ng-src="{{image.thumbUrl}}" class="img-thumbnail">
+                                </a>
+                            </li>
+                        </ul>
+                    </uib-tab>
+                </uib-tabset>     
+            </div>
+        </div>
+
+	    <div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+				<div class="form-group">
+				   <div class="col-md-3" style="padding: 1px">
+						<a ui-sref="personalInformationList" class="btn btn-primary btn-block">Back</a>
+					</div>
+					<div class="col-md-9" style="padding: 1px">
+						<button class="btn btn-default btn-block" ng-disabled="form.$invalid" ng-click="save(model)">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /#page-wrapper -->

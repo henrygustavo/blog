@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-9" id="blog-listing-big">
+        <section class="post" ng-repeat="blogEntry in content">
+            <h2><a ui-sref="blogEntry({headerUrl : '{{blogEntry.headerUrl}}'})">{{blogEntry.header}}</a></h2>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="author-category">By <a>{{blogEntry.author}}</a>
+                </div>
+                <div class="col-sm-6">
+                    <p class="date-comments">
+                        <a ui-sref="blogEntry({headerUrl : '{{blogEntry.headerUrl}}'})"><i class="fa fa-calendar-o"></i> {{ blogEntry.creationDate| date:'MM/dd/yyyy h:mma'}}</a>
+                        <a href="#/blogEntry/{{blogEntry.headerUrl}}#comments"><i class="fa fa-comment-o"></i> {{blogEntry.totalComments}} Comments</a>
+                    </p>
+                </div>
+            </div>
+
+            <p class="intro" ng-bind-html="renderHtml(blogEntry.shortContent)"> </p>
+            <p class="read-more">
+                <a ui-sref="blogEntry({headerUrl : '{{blogEntry.headerUrl}}'})" class="btn btn-template-main">Continue reading</a>
+            </p>
+        </section>
+        <ul class="pager">
+            <li class="previous" scrollup ng-class="{'disabled': currentPage == '1'}" ng-click="currentPage != '1' && newerPage(currentPage - 1)">
+                <a href="#">&larr; Newer</a>
+            </li>
+            <li class="next" scrollup ng-class="{'disabled': currentPage == totalPages}" ng-click="currentPage != totalPages && olderPage(currentPage + 1)">
+                <a href="#">Older &rarr;</a>
+            </li>
+        </ul>
+    </div>
+    <div sidebar class="col-md-3"></div>
+</div>

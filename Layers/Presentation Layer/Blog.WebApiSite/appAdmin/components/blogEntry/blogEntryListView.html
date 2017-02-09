@@ -1,0 +1,32 @@
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-6 panel panel-default">
+            <fieldset>
+                <legend>Search</legend>
+                <div class="form-group col-lg-12">
+                    <label for="searchHeader" class="col-lg-2 control-label">Header:</label>
+                    <div class="col-lg-10">
+                        <div class="input-group">
+                            <input type="text" name="searchHeader" ng-model="model.searchHeader" class="form-control" />
+                            <span class="input-group-btn">
+                                <button class="btn  btn-default btn-block" ng-click="search(model)">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a ui-sref="blogEntryEdit({id:0})" style="float: right" class="btn btn-success"> <i class="glyphicon glyphicon-plus"></i>Add</a>
+        </div>
+        <br />
+        <div class="col-lg-12">
+            <br />
+            <div ng-grid="ngGridView" class="gridStyle"></div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->

@@ -1,0 +1,57 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-8 col-lg-offset-4">
+            <h2>Blog Entries</h2>
+        </div>
+    </div>
+    <form name="form" role="form" novalidate>
+        <div class="row">
+            <div class="col-md-4 well col-lg-offset-4">
+
+                <input-text-edit label="Header" name="header" readonly></input-text-edit>
+
+                <input-text-edit label="Author" name="author" readonly></input-text-edit>
+
+                <input-text-edit label="State" name="stateName" readonly></input-text-edit>
+
+                <div class="form-group">
+                    <tags-input ng-model="model.tags" display-property="name" ng-disabled="true" placeholder="">
+
+                    </tags-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 well">
+                <uib-tabset justified="true">
+                    <div text-angular-toolbar class="toolbar" name="toolbar" ta-toolbar="[]"></div>
+
+                    <uib-tab heading="Short Content">
+
+                        <input-text-edit name="shortContent" editor readonly></input-text-edit>
+
+                    </uib-tab>
+                    <uib-tab heading="Content">
+
+                        <input-text-edit name="content" editor readonly></input-text-edit>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 well col-lg-offset-4">
+                <div class="form-group">
+                    <div class="col-md-3" style="padding: 1px">
+                        <a ui-sref="blogEntryList" class="btn btn-default btn-block">Back</a>
+                    </div>
+                    <div class="col-md-9" style="padding: 1px">
+                        <a ui-sref="blogEntryEdit({id : model.id})" class="btn btn-primary btn-block">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /#page-wrapper -->

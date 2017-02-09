@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9655DA30-343A-4DC9-A1D2-8457FBCE7CA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blog.Business.Logic</RootNamespace>
+    <AssemblyName>Blog.Business.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementations\PersonalInformationBL.cs" />
+    <Compile Include="Interfaces\IPersonalInformationBL.cs" />
+    <Compile Include="Implementations\BlogEntryBL.cs" />
+    <Compile Include="Interfaces\IBlogEntryBL.cs" />
+    <Compile Include="Implementations\BlogEntryCommentBL.cs" />
+    <Compile Include="Interfaces\IBlogEntryCommentBL.cs" />
+    <Compile Include="Implementations\BlogEntryTagBL.cs" />
+    <Compile Include="Interfaces\IBlogEntryTagBL.cs" />
+    <Compile Include="Implementations\TagBL.cs" />
+    <Compile Include="Interfaces\ITagBL.cs" />
+    <Compile Include="Implementations\RoleBL.cs" />
+    <Compile Include="Implementations\UserBL.cs" />
+    <Compile Include="Implementations\CommonBL.cs" />
+    <Compile Include="Interfaces\IBaseLogic.cs" />
+    <Compile Include="Interfaces\IRoleBL.cs" />
+    <Compile Include="Interfaces\IUserBL.cs" />
+    <Compile Include="Interfaces\ICommonBL.cs" />
+    <Compile Include="Implementations\GoogleApiDataStoreBL.cs" />
+    <Compile Include="Interfaces\IGoogleApiDataStoreBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Business.Entity\Blog.Business.Entity.csproj">
+      <Project>{de1abf8e-cdae-420a-a930-c32496f7ed44}</Project>
+      <Name>Blog.Business.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data Access Layer\Blog.DataAccess\Blog.DataAccess.csproj">
+      <Project>{2d428b0f-42d2-4653-b628-c6d6351a6727}</Project>
+      <Name>Blog.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-md-9" id="blog-post">
+        <h2 class="text-muted text-uppercase">{{post.header}}</h2>
+        <p class="text-muted text-uppercase mb-small text-right">By <a href="#">{{post.author}}</a> | {{post.creationDate| date:'MM/dd/yyyy h:mma'}} </p>
+        <p class="lead" ng-bind-html="renderHtml(post.shortContent)"></p>
+
+        <div id="post-content" ng-bind-html="renderHtml(post.content)">
+
+        </div>
+
+        <div class="panel sidebar-menu" ng-show="tagsList.length > 0">
+
+            <div class="panel-body">
+                <ul class="tag-cloud">
+                    <li ng-repeat="tag in post.tags"><a ng-click="searchTags(tag.name)"><i class="fa fa-tags"></i>{{ tag.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /#post-content -->
+
+        <div id="comments">
+            <h4 class="text-uppercase">{{post.comments.length}} comments</h4>
+
+            <div class="row comment" ng-repeat="comment in post.comments">
+                <div class="col-sm-12 col-md-12">
+                    <h5 class="text-uppercase">{{comment.name}}</h5>
+                    <p class="posted"><i class="fa fa-clock-o"></i> {{comment.creationDate|  date:'MM/dd/yyyy h:mma'}}</p>
+                    <p>{{comment.comment}}</p>
+
+                </div>
+            </div>
+            <!-- /.comment -->
+
+        </div>
+        <!-- /#comments -->
+
+        <div id="comment-form">
+
+            <h4 class="text-uppercase">Leave comment</h4>
+
+            <form name="form" role="form" novalidate>
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <input-text-edit label='Name <span class="required">*</span>' name="name" minlength="3" required></input-text-edit>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input-text-edit label='Email <span class="required">*</span>' name="email" email required></input-text-edit>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input-text-edit label='Comment <span class="required">*</span>' name="comment" area="4" required></input-text-edit>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 text-right">
+                        <button class="btn btn-template-main" ng-disabled="form.$invalid" ng-click="addComment(model)"><i class="fa fa-comment-o"></i> Post comment</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+        <!-- /#comment-form -->
+
+    </div>
+    <div sidebar class="col-md-3"></div>
+</div>

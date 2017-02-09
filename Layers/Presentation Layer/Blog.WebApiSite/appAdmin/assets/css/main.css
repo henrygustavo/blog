@@ -1,0 +1,16 @@
+﻿.ngViewport {
+  overflow: auto;
+  min-height: 200px;
+}
+input[type="text"].ng-invalid-date {
+    border: 1px solid red !important;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 400px;
+}
+.activeView{
+    background-color: #eee;
+     color: #23527c;
+}

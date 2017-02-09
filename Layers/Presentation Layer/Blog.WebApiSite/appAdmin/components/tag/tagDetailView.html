@@ -1,0 +1,30 @@
+<div id="page-wrapper">	
+	﻿<div class="row">
+		<div class="col-md-8 col-lg-offset-4">
+			<h2>Tag</h2>
+		</div>
+	</div>
+	<form name="form" role="form" novalidate>
+		<div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+
+				<input-text-edit label="Name" name="name"   readonly></input-text-edit>
+				<input-text-edit label="State" name="stateName" readonly></input-text-edit>
+			
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+				<div class="form-group">
+					<div class="col-md-3" style="padding: 1px">
+						<a ui-sref="tagList" class="btn btn-primary btn-block">Back</a>
+					</div>
+					<div class="col-md-9" style=" padding: 1px">
+					<a ui-sref="tagEdit({id:model.id})" class="btn btn-default btn-block">Edit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /#page-wrapper -->

@@ -1,0 +1,13 @@
+<div id="page-wrapper">
+    <div class="row" >
+        <div class="col-lg-12" ng-show="!hasItem()">
+            <a ui-sref="personalInformationEdit({id : 0})" style="float: right" class="btn btn-success"> <i class="glyphicon glyphicon-plus"></i>Add</a>
+        </div>
+        <br />
+        <div class="col-lg-12">
+            <br />
+            <div ng-grid="ngGridView" class="gridStyle"></div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->

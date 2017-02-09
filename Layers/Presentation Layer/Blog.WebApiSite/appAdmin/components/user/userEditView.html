@@ -1,0 +1,41 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-md-8 col-lg-offset-4">
+			<h2>User</h2>
+		</div>
+	</div>
+	<form name="form" role="form" novalidate>
+		<div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+            
+				<input-text-edit label="User Name" name="userName" ng-model="model.userName" ng-required="(model.id==0)" minlength="4" ng-disabled="(model.id==0)?false:true" ng-directive-if="{'ng-unique-user-name': 'model.id==0'}" ng-unique-user-name></input-text-edit>
+
+				<input-text-edit label="Email" name="email" ng-model="model.email" email ng-directive-if="{'ng-unique-email': 'model.id==0'}" ng-unique-email ng-disabled="(model.id==0)?false:true" ng-required="(model.id==0)"></input-text-edit>
+
+				<input-text-edit label="Password" name="password" password ng-hide="(model.id==0)?false:true" ng-required="(model.id==0)"></input-text-edit>
+
+				<input-text-edit label="Confirm Password" name="confirmPassword" ng-hide="(model.id==0)?false:true" minlength="6" password ng-match="model.password" ng-model="model.confirmPassword"></input-text-edit>
+
+				<input-text-edit label="Role" name="idRole" select="role.value as role.text for role in model.roles" required></input-text-edit>
+
+				<input-text-edit label="Lockout Enabled" name="lockoutEnabled" checkbox></input-text-edit>
+
+				<input-text-edit label="Disabled" name="disabled" checkbox></input-text-edit>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 well col-lg-offset-4">
+				<div class="form-group">
+					<div class="col-md-3" style="padding: 1px">
+						<a ui-sref="userList" class="btn btn-primary btn-block">Back</a>
+					</div>
+					<div class="col-md-9" style="padding: 1px">
+						<button class="btn btn-default btn-block" ng-disabled="form.$invalid" ng-click="save(model)">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /#page-wrapper -->
