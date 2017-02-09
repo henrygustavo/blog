@@ -45,8 +45,8 @@ angular.module("applicationModule").directive('header', function () {
                     
                     $scope.publicUrls = [
                                             { "value": "home", "url": "home", "name": "Home" },
-                                            { "value": "about", "url": "about", "name": "About" },
-                                            { "value": "contact", "url": "contact", "name": "Contact" }
+                                            { "value": "about", "url": "about", "name": "About" }
+                                            //{ "value": "contact", "url": "contact", "name": "Contact" }
                                         ];
                            
                 };

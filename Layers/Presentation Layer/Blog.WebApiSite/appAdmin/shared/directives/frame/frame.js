@@ -58,7 +58,7 @@ angular.module("applicationAdminModule").directive('frame', function () {
                     $scope.adminUrls = [
 										{ "icon":"fa-home", "value":"home", "url":"home", "name": "DashBoard","permission": "AUTHORIZED"},									
 										{ "icon":"fa-edit", "value":"personalInformation", "url":"personalInformationList", "name":"Personal Information","permission": "AUTHORIZED"},
-										{ "icon":"fa-edit", "value":"blogEntry", "url":"blogEntryList", "name":"BlogEntry","permission": "AUTHORIZED"},
+										{ "icon":"fa-edit", "value":"blogEntry", "url":"blogEntryList", "name":"Blog Entry","permission": "AUTHORIZED"},
 										{ "icon":"fa-edit", "value":"tag", "url":"tagList", "name":"Tag","permission": "AUTHORIZED"},
 										{ "icon":"fa-edit", "value":"user", "url":"userList", "name":"User","permission": "ADMIN"},
 										{ "icon":"fa-edit", "value":"role", "url":"roleList", "name":"Role","permission": "ADMIN"} 										
