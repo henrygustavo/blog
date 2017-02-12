@@ -34,7 +34,10 @@ namespace Blog.WebApiSite.Core
 
             var currentUtc = new SystemClock().UtcNow;
             data.Properties.IssuedUtc = currentUtc;
-            data.Properties.ExpiresUtc = currentUtc.Add(TimeSpan.FromMinutes(60));
+
+            double expirationTimeMin = double.Parse(ConfigurationManager.AppSettings["ExpirationTimeTokenInMin"]);
+            data.Properties.ExpiresUtc = currentUtc.Add(TimeSpan.FromMinutes(expirationTimeMin));
+
             var expires = data.Properties.ExpiresUtc;
 
             var token = new JwtSecurityToken(_issuer, audienceId, data.Identity.Claims, currentUtc.UtcDateTime, expires.Value.UtcDateTime, signingKey);
