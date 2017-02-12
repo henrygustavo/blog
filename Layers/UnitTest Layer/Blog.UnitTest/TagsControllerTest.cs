@@ -31,7 +31,7 @@ namespace Blog.UnitTest
            
             // Act
             var controller = new TagsController(_logger, _entityBL, _commonBL);
-            var result = controller.GetTags(page, pageSize) as OkNegotiatedContentResult<PagedList>;
+            var result = controller.GetTags(string.Empty,page, pageSize) as OkNegotiatedContentResult<PagedList>;
 
             // Assert
 

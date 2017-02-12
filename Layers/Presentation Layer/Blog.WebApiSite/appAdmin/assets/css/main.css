@@ -10,9 +10,52 @@ input[type="text"].ng-invalid-date {
     border: 1px solid rgb(212,212,212);
     height: 400px;
 }
+.gallery {
+  padding: 10px;
+}
+
+.gallery li {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .gallery li {
+    margin: 0;
+  }
+}
+
+.gallery1 img {
+  width: 100px;
+  height: 100px;
+}
+
+.gallery2 img {
+  width: 6em;
+}
+
+.gallery5 img {
+  width: 120px;
+}
+
+.img-thumbnail:active { 
+    background-color: #f0ad4e;
+}
+
+.img-thumbnailActive { 
+    background-color: #f0ad4e!important;
+}
+
 .activeView{
     background-color: #eee;
      color: #23527c;
+}
+
+.highlight{
+   
+     color: #a94442;
 }
 
 /* ====== ====== */

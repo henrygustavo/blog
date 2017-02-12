@@ -61,11 +61,11 @@ angular.module("applicationAdminModule").controller("blogEntryListController", f
 		columnDefs: [
 					{ field: '', displayName: '', width: '70', sortable: false, cellTemplate: '<div class="ngCellText">{{row.rowIndex + 1}}</div>' },
 
-					{ field: 'header', displayName: 'Header', width: '100'},
+					{ field: 'header', displayName: 'Header'},
 					{ field: 'author', displayName: 'Author', width: '100' },
                     { field: 'creationDate', displayName: 'CreationDate', width: '200', cellFilter: "date:'MM/dd/yyyy h:mma'" },
                     { field: 'tags', displayName: 'Tags', width: '200' },
-					{ field: 'totalComments', displayName: 'Total Comments', width: '200' },
+					{ field: 'totalComments', displayName: 'Total Comments', width: '150' },
 					{ field: 'edit', displayName: '', width: '120', sortable: false, cellTemplate: rowTemplate }
 		]
 	};

@@ -5,18 +5,18 @@ angular.module("applicationAdminModule").controller("blogEntryEditController", f
     $scope.model.author = "admin";
     $scope.model.tags = [];
     $scope.tagsList = [];
-    $scope.currentImageFolder = '';
-    $scope.currentFolder = '';
+    $scope.currentIdImageFolder = '';
+    $scope.currentIdFileFolder = '';
 
 	helperService.activateView('blogEntry');
 
-	$scope.isActive = function (headerName, type) {
+	$scope.isActive = function (id, type) {
 
 	    switch (type) {
 	        case "I":
-	            return $scope.currentImageFolder == headerName;
+	            return $scope.currentIdImageFolder == id;
 	        case "F":
-	            return $scope.currentFolder == headerName;
+	            return $scope.currentIdFileFolder == id;
 	    }
 	}
 
@@ -41,7 +41,7 @@ angular.module("applicationAdminModule").controller("blogEntryEditController", f
 	};
 
 	$scope.getFiles = function (idFolder) {
-	    $scope.currentFileFolder = idFolder;
+	    $scope.currentIdFileFolder = idFolder;
 	    commonRepository.getFiles(idFolder).then(
                 function (response) {
 
@@ -54,7 +54,7 @@ angular.module("applicationAdminModule").controller("blogEntryEditController", f
 	};
 
 	$scope.getImages = function (idFolder) {
-	    $scope.currentImageFolder = idFolder;
+	    $scope.currentIdImageFolder = idFolder;
 	    commonRepository.getFiles(idFolder).then(
                 function (response) {
 

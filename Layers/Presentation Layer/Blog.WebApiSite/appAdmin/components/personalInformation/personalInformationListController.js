@@ -61,7 +61,7 @@ angular.module("applicationAdminModule").controller("personalInformationListCont
 		sortInfo: $scope.data.sortOptions,
 		columnDefs: [
 					    { field: '', displayName: '', width: '70', sortable: false, cellTemplate: '<div class="ngCellText">{{row.rowIndex + 1}}</div>' },
-                        { field: 'siteName', displayName: 'Site Name', width: '600' },
+                        { field: 'siteName', displayName: 'Site Name'},
                         { field: 'firstName', displayName: 'First Name', width: '600' },
                         { field: 'edit', displayName: '', width: '120', sortable: false, cellTemplate: rowTemplate }
 		]

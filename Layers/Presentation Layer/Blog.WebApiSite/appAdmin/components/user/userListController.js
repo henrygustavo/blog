@@ -60,9 +60,9 @@ angular.module("applicationAdminModule").controller("userListController", functi
         rowHeight: 50,
         columnDefs: [
                     { field: '', displayName: '', width: '70', sortable: false, cellTemplate: '<div class="ngCellText">{{row.rowIndex + 1}}</div>' },
-                    { field: 'userName', displayName: 'User Name', width: '200' },
+                    { field: 'userName', displayName: 'User Name' },
                     { field: 'roleName', displayName: 'Role', width: '100' },
-                    { field: 'email', displayName: 'Email', width: '250' },
+                    { field: 'email', displayName: 'Email' },
                     { field: 'disabled', displayName: 'Disabled', width: '100' },
                     { field: 'lastActivityDate', displayName: 'Ultima actualizacion', cellFilter: 'date:\'MM/dd/yyyy HH:MM:ss\'', width: '200'},
                     { field: 'edit', displayName: '', width: '120', sortable: false, cellTemplate: rowTemplate }

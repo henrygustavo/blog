@@ -9,7 +9,7 @@ angular.module("applicationAdminModule").factory('tagService', function ($http, 
                 totalPages: 0,
 
                 filterOptions: {
-                    filterText: {},
+                    filterName: '',
                     externalFilter: '',
                     useExternalFilter: true
                 },
@@ -28,6 +28,7 @@ angular.module("applicationAdminModule").factory('tagService', function ($http, 
         },
         find: function () {
             var params = {
+                filterName: service.data.filterOptions.filterName,
                 page: service.data.pagingOptions.currentPage,
                 pageSize: service.data.pagingOptions.pageSize,
                 sortBy: service.data.sortOptions.fields[0],

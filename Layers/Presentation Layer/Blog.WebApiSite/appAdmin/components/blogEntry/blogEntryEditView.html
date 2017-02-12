@@ -43,7 +43,7 @@
                                         <ul class="gallery gallery1">
                                             <li ng-repeat="imageFolder in imagesFolder">
                                                 <a ng-click="getImages(imageFolder.id)">
-                                                    <img ng-src="/appAdmin/assets/img/folder-icon.png" class="img-thumbnail" ng-class="{'img-thumbnailActive': isActive(imageFolder.name,'I')}">
+                                                    <img ng-src="/appAdmin/assets/img/folder-icon.png" class="img-thumbnail" ng-class="{'img-thumbnailActive': isActive(imageFolder.id,'I')}">
                                                 </a>
                                                 <div style="clear: both" />
                                                 {{imageFolder.name}}
@@ -64,7 +64,7 @@
                                         <ul class="gallery gallery1">
                                             <li ng-repeat="fileFolder in filesfolder">
                                                 <a ng-click="getFiles(fileFolder.id)">
-                                                    <img ng-src="/appAdmin/assets/img/folder-icon.png" class="img-thumbnail" ng-class="{'img-thumbnailActive': isActive(fileFolder.name,'F')}">
+                                                    <img ng-src="/appAdmin/assets/img/folder-icon.png" class="img-thumbnail" ng-class="{'img-thumbnailActive': isActive(fileFolder.id,'F')}">
                                                 </a>
                                                 <div style="clear: both" />
                                                 {{fileFolder.name}}

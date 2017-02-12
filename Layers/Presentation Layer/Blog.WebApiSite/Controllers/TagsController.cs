@@ -27,7 +27,7 @@ namespace Blog.WebApiSite.Controllers
 
 		}
 
-		public IHttpActionResult GetTags(int page = 1, int pageSize = 10, string sortBy = "id", string sortDirection = "asc")
+		public IHttpActionResult GetTags(string filterName, int page = 1, int pageSize = 10, string sortBy = "id", string sortDirection = "asc")
 		{
 			try
 			{
@@ -35,7 +35,11 @@ namespace Blog.WebApiSite.Controllers
 
 				List<FilterOption> filters = new List<FilterOption>();
 
-				List<string> selectColumnsList = new List<string>
+                if (!string.IsNullOrEmpty(filterName))
+                    filters.Add(new FilterOption { Field = "Name", Value = filterName, Sign = "%" });
+
+
+                List<string> selectColumnsList = new List<string>
 				{
 				"Id",   
 				"Name",   

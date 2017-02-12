@@ -9,7 +9,11 @@ angular.module("applicationAdminModule").controller("tagListController", functio
 
 	$scope.search = function (model) {
 
-		$scope.data.pagingOptions.currentPage = 1;
+	    var name = (model != undefined) ? model.searchName : '';
+
+	    tagService.data.filterOptions.filterName = name;
+	    $scope.data.pagingOptions.currentPage = 1;
+	    tagService.find();
 	};
 
 	$scope.$watch('data.sortOptions.fields', function (newVal, oldVal) {
@@ -57,7 +61,7 @@ angular.module("applicationAdminModule").controller("tagListController", functio
 		columnDefs: [
 					{ field: '', displayName: '', width: '70', sortable: false, cellTemplate: '<div class="ngCellText">{{row.rowIndex + 1}}</div>' },
 
-					{ field: 'name', displayName: 'Name', width: '100'},
+					{ field: 'name', displayName: 'Name'},
 					{ field: 'stateName', displayName: 'State', width: '100'},
 					{ field: 'edit', displayName: '', width: '120', sortable: false, cellTemplate: rowTemplate }
 		]
