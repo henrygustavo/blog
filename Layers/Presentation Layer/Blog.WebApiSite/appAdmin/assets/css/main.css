@@ -14,3 +14,17 @@ input[type="text"].ng-invalid-date {
     background-color: #eee;
      color: #23527c;
 }
+
+/* ====== ====== */
+
+.ta-editor.form-control.myform2-height, .ta-scroll-window.form-control.myform2-height  {
+    height: 1024px;
+    min-height: 1024px;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+.form-control.myform2-height > .ta-bind {
+    min-height: 1024px;
+    padding: 6px 12px;
+}
