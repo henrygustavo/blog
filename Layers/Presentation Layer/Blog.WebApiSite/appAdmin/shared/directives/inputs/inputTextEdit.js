@@ -179,7 +179,7 @@ function createEditInput(attributes) {
             break;
     }
 
-    finalHtmlInput = formGroupIni + label + validationMessagesIni + datehtmlIni + input + datehtmlEnd + validationMessagesEnd + formGroupEnd;
+    finalHtmlInput = formGroupIni + label + validationMessagesIni + datehtmlIni + input + datehtmlEnd + validationMessagesEnd + formGroupEnd + "</div>";
 
     return finalHtmlInput;
 }
