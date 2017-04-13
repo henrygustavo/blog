@@ -19,7 +19,7 @@ namespace Blog.DataAccess.Mappings
 
 			Map(x => x.ShortContent);
 
-			Map(x => x.Content);
+			Map(x => x.Content).CustomSqlType("varchar(max)").Length(int.MaxValue);
 
 			Map(x => x.State);
 

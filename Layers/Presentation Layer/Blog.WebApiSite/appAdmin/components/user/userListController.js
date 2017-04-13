@@ -64,7 +64,7 @@ angular.module("applicationAdminModule").controller("userListController", functi
                     { field: 'roleName', displayName: 'Role', width: '100' },
                     { field: 'email', displayName: 'Email' },
                     { field: 'disabled', displayName: 'Disabled', width: '100' },
-                    { field: 'lastActivityDate', displayName: 'Ultima actualizacion', cellFilter: 'date:\'MM/dd/yyyy HH:MM:ss\'', width: '200'},
+                    { field: 'lastActivityDate', displayName: 'Last Update', cellFilter: 'date:\'MM/dd/yyyy HH:MM:ss\'', width: '200'},
                     { field: 'edit', displayName: '', width: '120', sortable: false, cellTemplate: rowTemplate }
         ]
     };
