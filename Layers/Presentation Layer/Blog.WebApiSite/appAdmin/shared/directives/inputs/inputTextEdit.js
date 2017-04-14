@@ -1,18 +1,31 @@
-angular.module("applicationAdminModule")
-        .directive('inputTextEdit', function () {
+angular.module("angular-input-text", [])
+    .provider("inputTextConfig",
+        function () {
+
+            this.setValidationMessagePath = function (validationMessagePath) {
+                this.validationMessagePath = validationMessagePath;
+            };
+
+            this.$get = function () {
+                return this;
+            };
+
+        })
+    .directive("inputTextEdit",
+        function (inputTextConfig) {
             return {
-                restrict: 'E',
+                restrict: "E",
                 replace: true,
-                require: 'ngModel',
+                require: "ngModel",
                 compile: function (element, attributes) {
 
-                    $(element).html(createEditInput(attributes));
+                    $(element).html(createEditInput(attributes, inputTextConfig.validationMessagePath));
                 }
             };
         });
 
 
-function createEditInput(attributes) {
+function createEditInput(attributes, inputTextEditConfig) {
 
     var type = "T";
     var form = "form";
@@ -27,7 +40,7 @@ function createEditInput(attributes) {
     var finalHtmlInput = "";
     var input = "";
     var formGroupIni = '<div class="form-group">';
-    var formGroupEnd = '</div>';
+    var formGroupEnd = "</div>";
 
 
     var validationMessagesIni = "";
@@ -36,11 +49,12 @@ function createEditInput(attributes) {
     var datehtmlIni = "";
     var datehtmlEnd = "";
 
-    angular.forEach(attributes.$attr, function (val, key) {
-        var value = attributes[key];
-        switch (key) {
+    angular.forEach(attributes.$attr,
+        function (val, key) {
+            var value = attributes[key];
+            switch (key) {
             case "label":
-                label = '<label>' + value + '</label>';
+                label = "<label>" + value + "</label>";
                 break;
 
             case "form":
@@ -63,7 +77,7 @@ function createEditInput(attributes) {
                 break;
 
             case "required":
-                attributesResult += (attributes.select != undefined) ? " ng-required-select " : " required ";
+                attributesResult += attributes.select != undefined ? " ng-required-select " : " required ";
                 hasValidation = true;
                 break;
 
@@ -92,7 +106,10 @@ function createEditInput(attributes) {
                     datehtmlIni = '<p class="input-group">';
                     updateOnBlur = "";
                     attributesResult += ' uib-datepicker-popup="dd/MM/yyyy" is-open="' + name + 'Opened" ';
-                    datehtmlEnd = '<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="' + name + 'Open($event)"><i class="glyphicon glyphicon-calendar"></i></button></span></p>';
+                    datehtmlEnd =
+                        '<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="' +
+                        name +
+                        'Open($event)"><i class="glyphicon glyphicon-calendar"></i></button></span></p>';
                 }
                 break;
 
@@ -133,53 +150,79 @@ function createEditInput(attributes) {
 
             default:
                 if (value == "" || value == undefined) {
-                    attributesResult += ' ' + val + ' ';
+                    attributesResult += " " + val + " ";
                 } else {
-                    attributesResult += ' ' + val + '="' + value + '" ';
+                    attributesResult += " " + val + '="' + value + '" ';
                 }
                 break;
-        }
-    });
+            }
+        });
 
     attributesResult += updateOnBlur;
 
     if (hasValidation) {
 
-        validationMessagesIni += '<div ng-class="{' + "'has-error'" + ': ' + form + '.' + name + '.$dirty && ' + form + '.' + name + '.$invalid}">';
-        validationMessagesEnd += '<div class="text-danger" ng-messages="' + form + '.' + name + '.$error" ng-if="' + form + '.' + name + '.$dirty">' +
-                                 '<div ng-messages-include="appAdmin/shared/html/validation-messages.html"></div></div>';
+        validationMessagesIni += '<div ng-class="{' +
+            "'has-error'" +
+            ": " +
+            form +
+            "." +
+            name +
+            ".$dirty && " +
+            form +
+            "." +
+            name +
+            '.$invalid}">';
+        validationMessagesEnd += '<div class="text-danger" ng-messages="' +
+            form +
+            "." +
+            name +
+            '.$error" ng-if="' +
+            form +
+            "." +
+            name +
+            '.$dirty">' +
+            '<div ng-messages-include="' +
+            inputTextEditConfig +
+            '"></div></div>';
     }
 
     switch (type) {
 
-        case "A":
-            input = '<textarea class="form-control" ' + attributesResult + '></textarea>';
-            break;
+    case "A":
+        input = '<textarea class="form-control" ' + attributesResult + "></textarea>";
+        break;
 
-        case "CB":
-            formGroupIni += '<div class="checkbox" style="margin-left: 19px">';
+    case "CB":
+        formGroupIni += '<div class="checkbox" style="margin-left: 19px">';
 
-            input = '<input name="' + name + '" type="checkbox" ng-model="model.' + name + '" ' + attributesResult + ' >';
+        input = '<input name="' + name + '" type="checkbox" ng-model="model.' + name + '" ' + attributesResult + " >";
 
-            formGroupEnd += '</div>';
-            finalHtmlInput = formGroupIni + input + attributes.label + formGroupEnd;
-            return finalHtmlInput;
-            break;
+        formGroupEnd += "</div>";
+        finalHtmlInput = formGroupIni + input + attributes.label + formGroupEnd;
+        return finalHtmlInput;
+    case "E":
+        input = ' <div text-angular="text-angular" ' + attributesResult + "></div> ";
+        break;
 
-        case "E":
-            input = ' <div text-angular="text-angular" ' + attributesResult + '></div> ';
-            break;
+    case "S":
+        input = '<select class="form-control" ' + attributesResult + ' ng-options="' + select + '"></select>';
+        break;
 
-        case "S":
-            input = '<select class="form-control" ' + attributesResult + ' ng-options="' + select + '"></select>';
-            break;
-
-        case "T":
-            input = '<input ' + typeInput + ' class="form-control" ' + attributesResult + ' />';
-            break;
+    case "T":
+        input = "<input " + typeInput + ' class="form-control" ' + attributesResult + " />";
+        break;
     }
 
-    finalHtmlInput = formGroupIni + label + validationMessagesIni + datehtmlIni + input + datehtmlEnd + validationMessagesEnd + formGroupEnd + "</div>";
+    finalHtmlInput = formGroupIni +
+        label +
+        validationMessagesIni +
+        datehtmlIni +
+        input +
+        datehtmlEnd +
+        validationMessagesEnd +
+        formGroupEnd +
+        "</div>";
 
     return finalHtmlInput;
 }

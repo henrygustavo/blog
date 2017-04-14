@@ -4,10 +4,10 @@
         <p class="text-muted text-uppercase mb-small text-right">By <a href="#">{{post.author}}</a> | {{post.creationDate| date:'MM/dd/yyyy h:mma'}} </p>
         <p class="lead" ng-bind-html="renderHtml(post.shortContent)"></p>
 
-        <div id="post-content" ng-bind-html="renderHtml(post.content)">
+           <div id="post-content" compile="post.content">
 
-        </div>
-
+          </div>
+        
         <div class="panel sidebar-menu" ng-show="tagsList.length > 0">
 
             <div class="panel-body">
@@ -76,3 +76,9 @@
     </div>
     <div sidebar class="col-md-3"></div>
 </div>
+<script type="text/javascript">
+    //EnlighterJS.Util.Init('pre', null, {
+    //    language:'csharp',
+    //    theme: 'Classic'
+    //});
+</script>

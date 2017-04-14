@@ -1,3 +1,5 @@
+using System.Web.Mvc;
+
 namespace Blog.WebApiSite.Models
 {
 	using Business.Entity;
@@ -16,7 +18,8 @@ namespace Blog.WebApiSite.Models
 		[Required]
 		public override string ShortContent { get; set; }
 		[Required]
-		public override string Content { get; set; }
+		[AllowHtml]
+        public override string Content { get; set; }
 		[Required]
 		public override int State { get; set; }
     }

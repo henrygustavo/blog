@@ -97,12 +97,12 @@
                 <uib-tabset justified="true">
                     <uib-tab heading="Short Content">
 
-                        <input-text-edit name="shortContent" editor required></input-text-edit>
+                        <input-text-edit name="shortContent" editor required ta-unsafe-sanitizer="true"></input-text-edit>
 
                     </uib-tab>
                     <uib-tab heading="Content">
 
-                        <input-text-edit name="content" editor required  ta-text-editor-class="form-control myform2-height" ta-html-editor-class="form-control myform2-height"></input-text-edit>
+                        <input-text-edit name="content" editor required ta-unsafe-sanitizer="true" ta-text-editor-class="form-control myform2-height" ta-html-editor-class="form-control myform2-height"></input-text-edit>
 
                     </uib-tab>
                 </uib-tabset>

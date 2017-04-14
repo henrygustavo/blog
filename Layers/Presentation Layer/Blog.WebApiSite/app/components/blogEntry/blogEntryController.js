@@ -1,6 +1,6 @@
 angular.module("applicationModule").controller('blogEntryController',
     function(headerUrl, $scope, blogEntryRepository, tagRepository, helperService, $state) {
-
+      
         $scope.model = {};
         $scope.post = {};
 
@@ -49,5 +49,7 @@ angular.module("applicationModule").controller('blogEntryController',
         };
 
         initialLoad();
+        
 
     });
+
