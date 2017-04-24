@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-9" id="blog-listing-big">
         <section class="post" ng-repeat="blogEntry in content">
-            <h2><a ui-sref="blogEntry({headerUrl : '{{blogEntry.headerUrl}}'})">{{blogEntry.header}}</a></h2>
+            <h2 style="text-align:justify"><a ui-sref="blogEntry({headerUrl : '{{blogEntry.headerUrl}}'})">{{blogEntry.header}}</a></h2>
             <div class="row">
                 <div class="col-sm-6">
                     <p class="author-category">By <a>{{blogEntry.author}}</a>
